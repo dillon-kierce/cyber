@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dillon Terminal</title>
+    <title>Dillon Kierce Terminal</title>
     <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/jquery.terminal.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.terminal/css/jquery.terminal.min.css"/>
@@ -15,16 +15,6 @@
             color: #33ff33;
             font-family: monospace;
         }
-        .blinking {
-            animation: blink 1s steps(2, start) infinite;
-            -webkit-animation: blink 1s steps(2, start) infinite;
-        }
-        @keyframes blink {
-            to { visibility: hidden; }
-        }
-        @-webkit-keyframes blink {
-            to { visibility: hidden; }
-        }
     </style>
 </head>
 <body>
@@ -32,10 +22,10 @@
         $(function() {
             $('body').terminal({
                 hello: function(name) {
-                    this.echo('Hello, ' + name + '! Welcome to Dillon's Hacker Terminal.');
+                    this.echo('Hello, ' + name + '! Welcome to Dillon Kierce\'s Terminal Webpage.');
                 },
                 about: function() {
-                    this.echo("Dillon is a cybersecurity specialist, researcher, and educator.");
+                    this.echo("Dillon Kierce is a cybersecurity specialist, researcher, and educator.");
                 },
                 projects: function() {
                     this.echo("- Cybersecurity Research\n- Teaching @ University\n- Blockchain Security\n- Honeypot Monitoring");
@@ -47,18 +37,39 @@
                     this.echo('<img src="https://placekitten.com/' + width + '/' + height + '">', {raw: true});
                 },
                 help: function() {
-                    this.echo("Available commands: hello [name], about, projects, contact, cat [width] [height], help");
+                    this.echo("Available commands: hello [name], about, projects, contact, cat [width] [height], hacktrace, nmapscan, sudo\n(Hint: try typing 'hacktrace')");
+                },
+                hacktrace: function() {
+                    this.echo("[ACCESSING TRACE MODULE...]");
+                    this.pause();
+                    setTimeout(() => {
+                        this.echo("[!] TRACE DETECTED ON REMOTE IP: 192.168.0.42");
+                        this.echo("[+] Spoofing DNS...");
+                        this.echo("[+] Injecting reverse shell payload...");
+                        this.echo("[✔] Connection established to 192.168.0.42:1337");
+                        this.resume();
+                    }, 2000);
+                },
+                nmapscan: function() {
+                    this.echo("Starting Nmap 7.91 ( https://nmap.org ) at 2025-03-22");
+                    this.echo("Nmap scan report for target.local (192.168.56.101)");
+                    this.echo("Host is up (0.012s latency).");
+                    this.echo("PORT     STATE SERVICE\n22/tcp   open  ssh\n80/tcp   open  http\n443/tcp  open  https\n3306/tcp open  mysql");
+                },
+                sudo: function(cmd) {
+                    if (!cmd) {
+                        this.echo("usage: sudo [command]");
+                    } else {
+                        this.echo("You are not in the sudoers file. This incident will be reported.");
+                    }
                 }
             }, {
                 greetings: `
-  _____  _ _ _ _ _              _               
- |  __ \| (_) | | |            | |              
- | |  | | |_| | | | ___   ___  | | ___   __ _   
- | |  | | | | | | |/ _ \ / _ \ | |/ _ \ / _\` |  
- | |__| | | | | | | (_) |  __/ | | (_) | (_| |_ 
- |_____/|_|_|_|_|_|\___/ \___| |_|\___/ \__,_(_)
-
-         DILLON<span class="blinking">_</span>
+__        __   _                            
+\ \      / /__| | ___ ___  _ __ ___   ___  
+ \ \ /\ / / _ \ |/ __/ _ \| '_ \\ \ / / _ \ 
+  \ V  V /  __/ | (_| (_) | | | |\ V /  __/ 
+   \_/\_/ \___|_|\___\___/|_| |_| \_/ \___| 
 
 Type 'help' to see available commands.`
             });
