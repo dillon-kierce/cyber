@@ -15,9 +15,34 @@
             color: #33ff33;
             font-family: monospace;
         }
+        .social-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            gap: 10px;
+        }
+        .social-button {
+            background-color: #33ff33;
+            color: black;
+            padding: 6px 12px;
+            font-size: 14px;
+            font-weight: bold;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .social-button:hover {
+            background-color: #28cc28;
+        }
     </style>
 </head>
 <body>
+    <div class="social-container">
+        <a class="social-button" href="https://your-landing-page-link.com" target="_blank">Visit Landing Page</a>
+        <a class="social-button" href="https://github.com/dillon-kierce" target="_blank">GitHub</a>
+    </div>
     <script>
         $(function() {
             $('body').terminal({
@@ -65,7 +90,6 @@
                 }
             }, {
                 greetings: `
-
 Type 'help' to see available commands.`
             });
         });
