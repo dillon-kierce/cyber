@@ -49,7 +49,7 @@
     <div id="terminal"></div>
     <script>
         $(function() {
-            $('body').terminal({
+            $('#terminal').terminal({
                 hello: function(name) {
                     this.echo('Hello, ' + name + '! Welcome to Dillon Kierce\'s Terminal Webpage.');
                 },
@@ -100,9 +100,9 @@
                 }
             }, {
                 greetings: `
-Type 'help' to see available commands.`
+    Type 'help' to see available commands.`
             });
         });
-    </script>
+    </script>    
 </body>
 </html>
