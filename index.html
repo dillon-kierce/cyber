@@ -15,6 +15,11 @@
             color: #33ff33;
             font-family: monospace;
         }
+        .terminal-output .greeting-center {
+            display: block;
+            text-align: center;
+            white-space: pre;
+        }
     </style>
 </head>
 <body>
@@ -40,20 +45,9 @@
                     this.echo("Available commands: hello [name], about, projects, contact, cat [width] [height], help");
                 }
             }, {
-                greetings: document.getElementById('greetings').innerHTML.trim()
+                greetings: '<span class="greeting-center">DILLON KIERCE</span>\n\nType \"help\" to see available commands.'
             });
         });
     </script>
-
-    <template id="greetings">
-  _____  _ _ _               _   _     _                      
- |  __ \(_) | |             | | | |   (_)                     
- | |  | |_| | | _____      _| |_| |__  _ _ __   ___ _ __ ___  
- | |  | | | | |/ _ \ \ /\ / / __| '_ \| | '_ \ / _ \ '__/ __| 
- | |__| | | | |  __/\ V  V /| |_| | | | | | | |  __/ |  \__ \ 
- |_____/|_|_|_|\___| \_/\_/  \__|_| |_|_|_| |_|\___|_|  |___/ 
-
-Type 'help' to see available commands.
-    </template>
 </body>
 </html>
