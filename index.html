@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -39,19 +40,20 @@
                     this.echo("Available commands: hello [name], about, projects, contact, cat [width] [height], help");
                 }
             }, {
-                greetings: `
- _______  __   __  _______  _______  ___      ___   __   __  _______
-|       ||  |_|  ||       ||       ||   |    |   | |  | |  ||       |
-|   _   ||       ||    ___||   _   ||   |    |   | |  |_|  ||    ___|
-|  | |  ||       ||   |___ |  | |  ||   |    |   | |       ||   |___ 
-|  |_|  ||       ||    ___||  |_|  ||   |___ |   | |       ||    ___|
-|       || ||_|| ||   |___ |       ||       ||   | |   _   ||   |___ 
-|_______||_|   |_||_______||_______||_______||___| |__| |__||_______|
-
-Type 'help' to see available commands.
-                `
+                greetings: document.getElementById('greetings').innerHTML.trim()
             });
         });
     </script>
+
+    <template id="greetings">
+  _____  _ _ _               _   _     _                      
+ |  __ \(_) | |             | | | |   (_)                     
+ | |  | |_| | | _____      _| |_| |__  _ _ __   ___ _ __ ___  
+ | |  | | | | |/ _ \ \ /\ / / __| '_ \| | '_ \ / _ \ '__/ __| 
+ | |__| | | | |  __/\ V  V /| |_| | | | | | | |  __/ |  \__ \ 
+ |_____/|_|_|_|\___| \_/\_/  \__|_| |_|_|_| |_|\___|_|  |___/ 
+
+Type 'help' to see available commands.
+    </template>
 </body>
 </html>
